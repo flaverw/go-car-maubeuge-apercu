@@ -25,7 +25,7 @@ a{color:inherit;text-decoration:none}
 
 /* logo (voiture inline + wordmark texte) */
 .logo{display:inline-flex;flex-direction:column;line-height:1}
-.logo .car{width:var(--w,132px);height:auto;stroke:var(--or);fill:none;stroke-width:4.4;stroke-linecap:round;stroke-linejoin:round}
+.logo .car{width:var(--w,132px);height:auto}
 .logo .wm{font-family:'Sora';font-weight:800;letter-spacing:.02em;font-size:var(--wm,26px)}
 .logo .tg{font-family:'Inter';font-weight:600;font-size:var(--tg,9px);letter-spacing:.02em;color:#c8912e;margin-top:2px}
 
@@ -89,7 +89,7 @@ section{padding:clamp(52px,9vh,104px) 24px}
 .auto{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
 .auto:hover{border-color:var(--or);transform:translateY(-3px)}
 .auto .vis{aspect-ratio:16/10;background:linear-gradient(180deg,#231c11,#18130c);position:relative;display:grid;place-items:center;border-bottom:1px solid var(--ligne)}
-.auto .vis svg{width:60%;stroke:var(--or);fill:none;stroke-width:2.4;opacity:.65}
+.auto .vis svg{width:66%;opacity:.92}
 .auto .vis img{width:100%;height:100%;object-fit:cover;display:block}
 .auto.ex .vis{background:repeating-linear-gradient(135deg,#1b160e 0 10px,#181209 10px 20px)}
 .auto.ex .vis svg{stroke:var(--gris2);opacity:.5}
@@ -170,18 +170,17 @@ body.qa .rev{opacity:1;transform:none}
 
 <!-- symbole voiture (logo) réutilisé -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<symbol id="gocar-car" viewBox="0 0 360 96">
-  <path d="M14 74 C14 63 22 57 38 55 L100 52 C116 38 152 31 194 33 C234 35 260 44 286 57 L330 61 C346 63 350 68 350 76"/>
-  <path d="M114 50 L132 39 M228 34 L221 53 M116 49 L228 48"/>
-  <path d="M42 76 L118 76 M180 76 L312 76"/>
-  <circle cx="143" cy="76" r="18"/><circle cx="143" cy="76" r="6"/>
-  <circle cx="300" cy="76" r="18"/><circle cx="300" cy="76" r="6"/>
-  <path d="M9 71 L32 68"/>
+<linearGradient id="gcgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d78a"/><stop offset=".5" stop-color="#d9a441"/><stop offset="1" stop-color="#8f6420"/></linearGradient>
+<symbol id="gocar-car" viewBox="0 0 420 150">
+  <path fill="url(#gcgrad)" d="M38 102 C38 88 50 80 76 78 L150 74 C170 48 214 40 264 44 C298 47 320 59 338 78 L388 82 C406 84 414 91 414 102 L346 102 A31 31 0 0 0 284 102 L150 102 A31 31 0 0 0 88 102 Z"/>
+  <path fill="#0e0c09" d="M162 72 C178 54 212 47 252 50 C270 52 284 58 296 68 L200 71 Z"/>
+  <circle cx="119" cy="102" r="27" fill="url(#gcgrad)"/><circle cx="119" cy="102" r="12.5" fill="#0e0c09"/><circle cx="119" cy="102" r="4.6" fill="url(#gcgrad)"/>
+  <circle cx="315" cy="102" r="27" fill="url(#gcgrad)"/><circle cx="315" cy="102" r="12.5" fill="#0e0c09"/><circle cx="315" cy="102" r="4.6" fill="url(#gcgrad)"/>
 </symbol></defs></svg>
 
 <nav>
   <a class="logo" href="#haut" aria-label="GO CAR">
-    <svg class="car" viewBox="0 0 360 96"><use href="#gocar-car"/></svg>
+    <svg class="car" viewBox="0 0 420 150"><use href="#gocar-car"/></svg>
     <span class="wm gold">GO CAR</span><span class="tg">Voitures d'occasion</span>
   </a>
   <div class="liens">
@@ -207,7 +206,7 @@ body.qa .rev{opacity:1;transform:none}
       </div>
     </div>
     <div class="emblem" aria-hidden="true">
-      <span class="logo"><svg class="car" viewBox="0 0 360 96"><use href="#gocar-car"/></svg><span class="wm gold">GO CAR</span></span>
+      <span class="logo"><svg class="car" viewBox="0 0 420 150"><use href="#gocar-car"/></svg><span class="wm gold">GO CAR</span></span>
     </div>
   </div>
 </header>
@@ -346,7 +345,7 @@ body.qa .rev{opacity:1;transform:none}
 </section>
 
 <footer>
-  <span class="logo"><svg class="car" viewBox="0 0 360 96"><use href="#gocar-car"/></svg><span class="wm gold">GO CAR</span><span class="tg">Achat &amp; Vente de Voitures d'Occasion</span></span>
+  <span class="logo"><svg class="car" viewBox="0 0 420 150"><use href="#gocar-car"/></svg><span class="wm gold">GO CAR</span><span class="tg">Achat &amp; Vente de Voitures d'Occasion</span></span>
   <p>Maquette de démonstration préparée par Everywhere, cabinet d'accompagnement numérique — à partir
   de votre carte et de vos informations publiques. Non indexée, formulaires inertes, aucune donnée
   collectée. Stock, visuels et tarifs à valider ensemble.</p>

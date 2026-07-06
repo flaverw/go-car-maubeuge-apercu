@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>GO CAR — carte NFC</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--noir:#0e0c09;--noir2:#151109;--carte:#1b160e;--ligne:#332a1c;--or:#d9a441;--or-c:#f2ca6b;--or-d:#9a6f24;--blanc:#f4efe6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#2a2419;font-family:'Inter',sans-serif;display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:center;min-height:100vh;padding:34px}
+.card{width:648px;height:408px;border-radius:16px;overflow:hidden;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+/* RECTO — noir + or */
+.recto{background:radial-gradient(120% 100% at 80% 0%,#241d10,var(--noir) 68%);color:var(--blanc)}
+.recto::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--or-d),var(--or-c),var(--or-d))}
+.recto .inner{position:relative;height:100%;padding:42px 48px;display:flex;flex-direction:column;justify-content:space-between}
+.recto .logo{width:190px}
+.recto .logo svg,.recto .logo img{width:100%;height:auto;display:block}
+.recto .slo{font-family:'Sora';font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.5px}
+.recto .slo em{font-style:normal;color:var(--or-c)}
+.recto .foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:14px}
+.recto .foot b{color:var(--or-c)}
+.recto .tap{border:1.5px solid var(--or);color:var(--or-c);padding:8px 15px;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;border-radius:8px;font-family:'IBM Plex Mono'}
+/* VERSO — sable clair */
+.verso{background:var(--blanc);color:var(--noir)}
+.verso .inner{height:100%;padding:36px 44px;display:flex;align-items:center;gap:34px}
+.verso .qr{width:198px;height:198px;background:#fff;border:1px solid #ddd2bd;border-radius:14px;padding:12px;flex:none;box-shadow:0 10px 26px rgba(14,12,9,.18)}
+.verso .qr img{width:100%;height:100%;display:block}
+.verso h2{font-family:'Sora';font-weight:800;font-size:29px;line-height:1.05;letter-spacing:-.5px}
+.verso p.appro{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--or-d);letter-spacing:1.5px;text-transform:uppercase;margin:10px 0 16px}
+.verso .row{font-size:15.5px;margin:6px 0;display:flex;gap:10px;align-items:baseline}
+.verso .row b{color:var(--or-d)}
+.tagp{position:fixed;bottom:10px;left:0;right:0;text-align:center;color:#8a7d63;font-family:'IBM Plex Mono';font-size:11px}
+@media print{body{background:#fff;gap:12mm}.tagp{display:none}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+  <div class="card recto">
+    <div class="inner">
+      <div class="logo"><img src="../logo.svg" alt="GO CAR"></div>
+      <div class="slo">L'occasion,<br><em>en toute confiance.</em></div>
+      <div class="foot"><div>82 rue de la Flamenne<br>59600 Maubeuge · <b>06 95 82 44 99</b></div><div class="tap">◗ Approchez</div></div>
+    </div>
+  </div>
+  <div class="card verso">
+    <div class="inner">
+      <div class="qr"><img src="qr.png" alt="QR vers le site"></div>
+      <div>
+        <h2>Le parc,<br>dans votre poche.</h2>
+        <p class="appro">Approchez votre téléphone</p>
+        <div class="row">🚗 <span>Achat &amp; vente de véhicules d'occasion</span></div>
+        <div class="row">🔎 <span>Le stock en ligne, <b>photos et détails</b></span></div>
+        <div class="row">📍 <span>82 rue de la Flamenne, Maubeuge</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="tagp">Carte NFC / QR — recto-verso · 85,6 × 54 mm · QR → aperçu, à repointer vers le domaine propre après signature</div>
+</body>
+</html>
