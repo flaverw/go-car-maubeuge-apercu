@@ -4,125 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>GO CAR — voitures d'occasion, Maubeuge</title>
+<title>GO CAR — Achat & Vente de Voitures d'Occasion, Maubeuge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --nuit:#14161a; --nuit2:#1b1e23; --carte:#20242a; --ligne:#2c3138;
-  --vert:#28c76f; --vert-d:#1e9e57; --vert-l:#5fe39a;
-  --jaune:#f5c542; --blanc:#f2f4f3; --gris:#9aa0a6; --gris2:#727880;
+  --noir:#0e0c09; --noir2:#151109; --carte:#1b160e; --ligne:#332a1c;
+  --or:#d9a441; --or-c:#f2ca6b; --or-d:#9a6f24; --blanc:#f4efe6; --gris:#a89c86; --gris2:#7a6f5b;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--nuit);color:var(--blanc);line-height:1.55}
-img{display:block;max-width:100%}
+body{font-family:'Inter',sans-serif;background:var(--noir);color:var(--blanc);line-height:1.55}
+svg{display:block}
 .disp{font-family:'Sora',sans-serif}
 .mono{font-family:'IBM Plex Mono',monospace}
 .lab{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.22em;font-size:11px}
 a{color:inherit;text-decoration:none}
+.gold{background:linear-gradient(180deg,var(--or-c),var(--or) 55%,var(--or-d));-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* ---- barre ---- */
+/* logo (voiture inline + wordmark texte) */
+.logo{display:inline-flex;flex-direction:column;line-height:1}
+.logo .car{width:var(--w,132px);height:auto;stroke:var(--or);fill:none;stroke-width:4.4;stroke-linecap:round;stroke-linejoin:round}
+.logo .wm{font-family:'Sora';font-weight:800;letter-spacing:.02em;font-size:var(--wm,26px)}
+.logo .tg{font-family:'Inter';font-weight:600;font-size:var(--tg,9px);letter-spacing:.02em;color:#c8912e;margin-top:2px}
+
+/* nav */
 nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:12px 24px;background:rgba(20,22,26,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--ligne)}
-nav .mk{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:800;font-size:20px;letter-spacing:.02em}
-nav .mk .feu{width:14px;height:14px;border-radius:50%;background:var(--vert);box-shadow:0 0 14px var(--vert)}
-nav .mk b{color:var(--vert)}
+  padding:10px 24px;background:rgba(14,12,9,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ligne)}
+nav .logo{--w:74px;--wm:19px;--tg:7.5px}
 nav .liens{display:flex;gap:22px;align-items:center}
 nav .liens a{color:var(--gris);font-size:13.5px;font-weight:500}
 nav .liens a:hover{color:var(--blanc)}
-nav .tel{background:var(--vert);color:#08130c;padding:9px 16px;border-radius:8px;font-weight:600;font-size:13.5px}
-@media(max-width:760px){nav .liens a:not(.tel){display:none}}
+nav .tel{background:linear-gradient(180deg,var(--or-c),var(--or-d));color:#1a1206;padding:9px 16px;border-radius:8px;font-weight:700;font-size:13.5px}
+@media(max-width:820px){nav .liens a:not(.tel){display:none}}
 
-/* ---- hero : le feu passe au vert ---- */
-.hero{position:relative;overflow:hidden;padding:clamp(46px,8vh,90px) 24px clamp(40px,7vh,80px);
-  background:
-   radial-gradient(80% 60% at 82% 12%,rgba(40,199,111,.14),transparent 60%),
-   linear-gradient(180deg,var(--nuit),var(--nuit2))}
-.hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:64px;z-index:0;
-  background:repeating-linear-gradient(90deg,var(--jaune) 0 46px,transparent 46px 92px);
-  opacity:.16;-webkit-mask:linear-gradient(180deg,transparent,#000);mask:linear-gradient(180deg,transparent,#000)}
-.hero .in{position:relative;z-index:2;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center}
-.hero .kk{color:var(--vert-l);margin-bottom:16px}
-.hero h1{font-family:'Sora';font-weight:800;font-size:clamp(46px,8vw,104px);line-height:.92;letter-spacing:-.02em}
-.hero h1 .go{color:var(--vert)}
-.hero .sous{margin-top:20px;font-size:clamp(16px,2vw,19px);color:#cdd2d6;max-width:44ch}
+/* motif bandes dorées (signature carte) */
+.stripes{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.stripes b{position:absolute;height:200%;width:clamp(70px,9vw,130px);top:-50%;
+  background:linear-gradient(180deg,var(--or-c),var(--or) 45%,var(--or-d));transform:rotate(20deg);opacity:.9}
+.stripes b.thin{width:10px;opacity:.7}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(46px,8vh,92px) 24px clamp(42px,7vh,84px);
+  background:radial-gradient(70% 70% at 78% 10%,rgba(217,164,65,.12),transparent 60%),linear-gradient(180deg,var(--noir),var(--noir2))}
+.hero .stripes{right:-4%;left:auto;width:44%}
+.hero .stripes b:nth-child(1){right:18%}.hero .stripes b:nth-child(2){right:6%;top:-50%}.hero .stripes b.thin{right:30%}
+.hero .in{position:relative;z-index:2;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.4fr .6fr;gap:36px;align-items:center}
+.hero .kk{color:var(--or-c);margin-bottom:16px}
+.hero h1{font-family:'Sora';font-weight:800;font-size:clamp(42px,7.4vw,92px);line-height:.94;letter-spacing:-.02em}
+.hero .sous{margin-top:20px;font-size:clamp(16px,2vw,19px);color:#d7cdb9;max-width:46ch}
 .hero .sous b{color:var(--blanc);font-weight:600}
-.hero .actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.hero .actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Sora';font-weight:700;font-size:15px;padding:14px 24px;border-radius:10px;cursor:pointer}
-.btn.vert{background:var(--vert);color:#08130c}.btn.vert:hover{background:var(--vert-l)}
-.btn.ghost{border:1px solid var(--ligne);color:var(--blanc)}.btn.ghost:hover{border-color:var(--vert)}
-/* le feu tricolore */
-.feux{justify-self:end;width:96px;background:#0d0f12;border:1px solid var(--ligne);border-radius:20px;padding:16px 0;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.feux i{width:52px;height:52px;border-radius:50%;background:#20242a;position:relative}
-.feux i.r{background:#3a2020}.feux i.o{background:#3a3320}
-.feux i.v{background:var(--vert);box-shadow:0 0 30px var(--vert),0 0 60px rgba(40,199,111,.5)}
-.feux .lbl{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.2em;color:var(--vert);margin-top:2px}
-@media(prefers-reduced-motion:no-preference){.feux i.v{animation:pulse 2.4s ease-in-out infinite}}
-@keyframes pulse{50%{box-shadow:0 0 44px var(--vert),0 0 80px rgba(40,199,111,.65)}}
-@media(max-width:820px){.hero .in{grid-template-columns:1fr}.feux{justify-self:start;flex-direction:row;width:auto;padding:12px 16px}.feux i{width:34px;height:34px}.feux .lbl{display:none}}
+.btn.or{background:linear-gradient(180deg,var(--or-c),var(--or-d));color:#1a1206}.btn.or:hover{filter:brightness(1.06)}
+.btn.ghost{border:1px solid var(--ligne);color:var(--blanc)}.btn.ghost:hover{border-color:var(--or)}
+.hero .emblem{justify-self:end}
+.hero .emblem .logo{--w:230px;--wm:52px;--tg:0}
+.hero .emblem .tg{display:none}
+@media(max-width:860px){.hero .in{grid-template-columns:1fr}.hero .emblem{justify-self:start;margin-top:6px}.hero .emblem .logo{--w:180px;--wm:40px}}
 
-/* bande chiffres */
-.bande{background:var(--vert);color:#08130c;font-family:'IBM Plex Mono';font-weight:600;font-size:13px;
-  letter-spacing:.04em;display:flex;flex-wrap:wrap}
-.bande div{padding:12px 22px;border-right:1px solid rgba(8,19,12,.2);flex:1;text-align:center;white-space:nowrap}
-@media(max-width:640px){.bande div{flex:1 1 50%}}
+/* bande piliers */
+.bande{position:relative;background:linear-gradient(180deg,var(--or-c),var(--or) 50%,var(--or-d));color:#1a1206;
+  font-family:'IBM Plex Mono';font-weight:600;font-size:13px;letter-spacing:.02em;display:flex;flex-wrap:wrap}
+.bande div{padding:13px 22px;border-right:1px solid rgba(26,18,6,.22);flex:1;text-align:center;white-space:nowrap}
+.bande b{font-weight:600}
+@media(max-width:700px){.bande div{flex:1 1 100%;border-right:none;border-bottom:1px solid rgba(26,18,6,.2)}}
 
-/* sections */
 section{padding:clamp(52px,9vh,104px) 24px}
 .wrap{max-width:1120px;margin:0 auto}
 .tt{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px}
-.tt .kk{color:var(--vert-l)}
+.tt .kk{color:var(--or-c)}
 .tt h2{font-family:'Sora';font-weight:800;font-size:clamp(28px,4.4vw,46px);line-height:1;margin-top:8px}
 .tt p{color:var(--gris);font-size:15px;max-width:46ch}
 
-/* le parc : filtre + fiches */
+/* parc */
 .filtre{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
 .filtre button{font-family:'IBM Plex Mono';font-size:12.5px;letter-spacing:.04em;color:var(--gris);
-  background:var(--nuit2);border:1px solid var(--ligne);border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
-.filtre button.on{background:var(--vert);color:#08130c;border-color:var(--vert)}
+  background:var(--noir2);border:1px solid var(--ligne);border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+.filtre button.on{background:linear-gradient(180deg,var(--or-c),var(--or-d));color:#1a1206;border-color:var(--or)}
 .parc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:900px){.parc{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.parc{grid-template-columns:1fr}}
+@media(max-width:900px){.parc{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.parc{grid-template-columns:1fr}}
 .auto{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
-.auto:hover{border-color:var(--vert);transform:translateY(-3px)}
-.auto .vis{aspect-ratio:16/10;background:
-   linear-gradient(180deg,#262b31,#1a1e23);position:relative;display:grid;place-items:center;border-bottom:1px solid var(--ligne)}
-.auto .vis svg{width:62%;opacity:.5}
-.auto.ex .vis{background:repeating-linear-gradient(135deg,#20242a 0 10px,#1c2025 10px 20px)}
-.auto .vis .tag{position:absolute;top:10px;left:10px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(8,19,12,.7);color:var(--vert-l);border:1px solid rgba(40,199,111,.4);padding:4px 8px;border-radius:6px}
+.auto:hover{border-color:var(--or);transform:translateY(-3px)}
+.auto .vis{aspect-ratio:16/10;background:linear-gradient(180deg,#231c11,#18130c);position:relative;display:grid;place-items:center;border-bottom:1px solid var(--ligne)}
+.auto .vis svg{width:60%;stroke:var(--or);fill:none;stroke-width:2.4;opacity:.65}
+.auto.ex .vis{background:repeating-linear-gradient(135deg,#1b160e 0 10px,#181209 10px 20px)}
+.auto.ex .vis svg{stroke:var(--gris2);opacity:.5}
+.auto .vis .tag{position:absolute;top:10px;left:10px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:rgba(26,18,6,.72);color:var(--or-c);border:1px solid rgba(217,164,65,.4);padding:4px 8px;border-radius:6px}
 .auto.ex .vis .tag{color:var(--gris);border-color:var(--ligne)}
 .auto .cps{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
 .auto h3{font-family:'Sora';font-weight:700;font-size:19px}
 .auto .specs{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:'IBM Plex Mono';font-size:12px;color:var(--gris)}
 .auto .specs b{color:var(--blanc);font-weight:500}
 .auto .seals{display:flex;flex-wrap:wrap;gap:6px}
-.auto .seal{font-size:11px;font-weight:600;color:var(--vert-l);background:rgba(40,199,111,.1);border:1px solid rgba(40,199,111,.3);border-radius:6px;padding:3px 8px}
+.auto .seal{font-size:11px;font-weight:600;color:var(--or-c);background:rgba(217,164,65,.1);border:1px solid rgba(217,164,65,.32);border-radius:6px;padding:3px 8px}
 .auto .bas{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px solid var(--ligne)}
 .auto .prix{font-family:'Sora';font-weight:800;font-size:24px}
 .auto .prix small{font-size:12px;color:var(--gris);font-weight:500;font-family:'IBM Plex Mono'}
-.auto .voir{color:var(--vert);font-weight:600;font-size:13.5px}
+.auto .voir{color:var(--or);font-weight:600;font-size:13.5px}
 .auto.ex h3,.auto.ex .prix{color:var(--gris2)}
 .parc-note{margin-top:22px;font-size:13.5px;color:var(--gris);font-style:italic}
 
 /* confiance */
-.confiance{background:var(--nuit2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
+.confiance{background:var(--noir2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
 .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
 @media(max-width:820px){.checks{grid-template-columns:1fr 1fr}}@media(max-width:520px){.checks{grid-template-columns:1fr}}
 .check{display:flex;gap:12px;align-items:flex-start;background:var(--carte);border:1px solid var(--ligne);border-radius:12px;padding:16px}
-.check .v{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(40,199,111,.14);border:1px solid var(--vert);color:var(--vert);display:grid;place-items:center;font-weight:700}
+.check .v{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(217,164,65,.14);border:1px solid var(--or);color:var(--or-c);display:grid;place-items:center;font-weight:700}
 .check b{font-family:'Sora';font-weight:700;font-size:15.5px;display:block;margin-bottom:2px}
 .check p{font-size:13.5px;color:var(--gris)}
 
-/* exister / sans commission */
+/* exister */
 .exister .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
 @media(max-width:820px){.exister .grid{grid-template-columns:1fr}}
 .exister .txt h2{font-family:'Sora';font-weight:800;font-size:clamp(26px,4vw,42px);line-height:1.02}
-.exister .txt h2 em{color:var(--vert);font-style:normal}
-.exister .txt p{color:#cdd2d6;margin-top:16px;font-size:15.5px}
-.exister .txt .pt{display:flex;gap:10px;margin-top:12px;font-size:14.5px;color:#cdd2d6}
-.exister .txt .pt::before{content:"→";color:var(--vert);font-weight:700}
+.exister .txt h2 em{font-style:normal}
+.exister .txt p{color:#d7cdb9;margin-top:16px;font-size:15.5px}
+.exister .txt .pt{display:flex;gap:10px;margin-top:12px;font-size:14.5px;color:#d7cdb9}
+.exister .txt .pt::before{content:"→";color:var(--or);font-weight:700}
 .compar{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;overflow:hidden}
 .compar .row{display:grid;grid-template-columns:1fr 1fr;font-size:14px}
 .compar .row:not(:last-child){border-bottom:1px solid var(--ligne)}
@@ -130,73 +130,86 @@ section{padding:clamp(52px,9vh,104px) 24px}
 .compar .cell.a{color:var(--gris);border-right:1px solid var(--ligne)}
 .compar .cell.b{color:var(--blanc)}
 .compar .head .cell{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-.compar .head .cell.a{color:var(--gris2)}.compar .head .cell.b{color:var(--vert-l)}
+.compar .head .cell.a{color:var(--gris2)}.compar .head .cell.b{color:var(--or-c)}
 
 /* trouver */
 .trouver .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 @media(max-width:760px){.trouver .grid{grid-template-columns:1fr}}
 .fiche{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;padding:26px}
-.fiche .k{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--vert-l);margin-bottom:10px}
+.fiche .k{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--or-c);margin-bottom:10px}
 .fiche .adr{font-family:'Sora';font-weight:700;font-size:19px}
-.fiche p{color:var(--gris);font-size:14.5px;margin-top:8px}
-.fiche .tel{display:inline-block;margin-top:12px;font-family:'Sora';font-weight:800;font-size:24px;color:var(--vert)}
-.fiche .aobt{font-size:12px;color:var(--gris2);font-style:italic;margin-top:4px}
+.fiche .co{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.fiche .co a{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--blanc)}
+.fiche .co a .i{color:var(--or);font-family:'IBM Plex Mono'}
+.fiche .co a.grand{font-family:'Sora';font-weight:800;font-size:22px}
+.fiche p{color:var(--gris);font-size:14px;margin-top:12px}
 .mini label{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);display:block;margin-bottom:6px}
 .mini .r{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-.mini input,.mini select,.mini textarea{width:100%;background:var(--nuit);border:1px solid var(--ligne);color:var(--blanc);
-  padding:11px 12px;border-radius:8px;font-family:'Inter';font-size:14px}
-.mini input:focus,.mini select:focus,.mini textarea:focus{outline:none;border-color:var(--vert)}
-.mini button{width:100%;margin-top:4px;background:var(--vert);color:#08130c;border:none;padding:13px;border-radius:8px;font-family:'Sora';font-weight:700;font-size:14px;cursor:pointer}
-.mini .ok{display:none;padding:16px;text-align:center;font-family:'Sora';font-weight:700;color:var(--vert)}
+.mini input,.mini textarea{width:100%;background:var(--noir);border:1px solid var(--ligne);color:var(--blanc);padding:11px 12px;border-radius:8px;font-family:'Inter';font-size:14px}
+.mini input:focus,.mini textarea:focus{outline:none;border-color:var(--or)}
+.mini button{width:100%;margin-top:4px;background:linear-gradient(180deg,var(--or-c),var(--or-d));color:#1a1206;border:none;padding:13px;border-radius:8px;font-family:'Sora';font-weight:700;font-size:14px;cursor:pointer}
+.mini .ok{display:none;padding:16px;text-align:center;font-family:'Sora';font-weight:700;color:var(--or-c)}
 .mini .dn{font-size:11.5px;color:var(--gris2);font-style:italic;text-align:center;margin-top:10px}
 
 footer{border-top:1px solid var(--ligne);padding:34px 24px;text-align:center}
-footer .mk{font-family:'Sora';font-weight:800;font-size:20px}
-footer .mk b{color:var(--vert)}
-footer p{font-size:12px;color:var(--gris2);margin-top:10px;max-width:72ch;margin-left:auto;margin-right:auto}
-.bandeau{position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(20,22,26,.96);border-top:1px solid rgba(40,199,111,.4);
+footer .logo{--w:120px;--wm:24px;--tg:8.5px}
+footer p{font-size:12px;color:var(--gris2);margin-top:14px;max-width:72ch;margin-left:auto;margin-right:auto}
+.bandeau{position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(14,12,9,.96);border-top:1px solid rgba(217,164,65,.4);
   padding:8px 14px;text-align:center;font-family:'IBM Plex Mono';font-size:11px;color:var(--gris)}
-.bandeau b{color:var(--vert-l)}
+.bandeau b{color:var(--or-c)}
 
 .rev{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .rev.vu{opacity:1;transform:none}
 body.qa .rev{opacity:1;transform:none}
-body.qa .feux i.v{animation:none}
 @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
+<!-- symbole voiture (logo) réutilisé -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="gocar-car" viewBox="0 0 360 96">
+  <path d="M20 74 Q26 74 30 66 Q40 50 78 47 L150 44 Q182 42 214 52 L250 63 L318 66 Q340 67 340 78"/>
+  <path d="M78 47 L96 63 M150 44 L150 62 M214 52 L206 64"/>
+  <path d="M40 78 L120 78 M170 78 L300 78"/>
+  <circle cx="145" cy="78" r="17"/><circle cx="145" cy="78" r="6"/>
+  <circle cx="315" cy="78" r="17"/><circle cx="315" cy="78" r="6"/>
+  <path d="M18 70 L34 68"/>
+</symbol></defs></svg>
+
 <nav>
-  <a class="mk" href="#haut"><span class="feu"></span>GO<b>CAR</b></a>
+  <a class="logo" href="#haut" aria-label="GO CAR">
+    <svg class="car" viewBox="0 0 360 96"><use href="#gocar-car"/></svg>
+    <span class="wm gold">GO CAR</span><span class="tg">Voitures d'occasion</span>
+  </a>
   <div class="liens">
     <a href="#parc">Le parc</a><a href="#confiance">La confiance</a><a href="#trouver">Nous trouver</a>
-    <a class="tel" href="#trouver">Nous appeler</a>
+    <a class="tel" href="tel:+33695824499">06 95 82 44 99</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero" id="haut">
+  <div class="stripes" aria-hidden="true"><b></b><b></b><b class="thin"></b></div>
   <div class="in">
     <div>
-      <div class="kk lab">Voitures d'occasion · Maubeuge</div>
-      <h1 class="disp">Le feu passe<br>au <span class="go">vert.</span></h1>
-      <p class="sous">Chez <b>GO CAR</b>, chaque voiture est <b>contrôlée, révisée et garantie</b> avant
-      de partir. Des occasions honnêtes, rue de la Flamenne — et bientôt, une vitrine rien qu'à vous.</p>
+      <div class="kk lab">Achat &amp; Vente de Voitures d'Occasion · Maubeuge</div>
+      <h1 class="disp">Des occasions<br><span class="gold">sélectionnées.</span></h1>
+      <p class="sous">Chez <b>GO CAR</b>, chaque voiture est <b>choisie, contrôlée et garantie</b> avant
+      d'être proposée. Achat, vente, reprise et achat cash — rue de la Flamenne, à Maubeuge.</p>
       <div class="actions">
-        <a class="btn vert" href="#parc">Voir le parc →</a>
-        <a class="btn ghost" href="#trouver">Nous trouver</a>
+        <a class="btn or" href="#parc">Voir le parc →</a>
+        <a class="btn ghost" href="tel:+33695824499">Nous appeler</a>
       </div>
     </div>
-    <div class="feux" aria-hidden="true">
-      <i class="r"></i><i class="o"></i><i class="v"></i>
-      <span class="lbl">GO</span>
+    <div class="emblem" aria-hidden="true">
+      <span class="logo"><svg class="car" viewBox="0 0 360 96"><use href="#gocar-car"/></svg><span class="wm gold">GO CAR</span></span>
     </div>
   </div>
 </header>
 
 <div class="bande">
-  <div>Contrôlées avant vente</div><div>Garantie 3 mois · extensible</div><div>CT à jour</div><div>Reprise &amp; dépôt-vente</div>
+  <div>Véhicules sélectionnés</div><div>Reprise &amp; achat cash</div><div>Service rapide et fiable</div>
 </div>
 
 <!-- LE PARC -->
@@ -214,11 +227,8 @@ body.qa .feux i.v{animation:none}
       <button data-min="10000" data-max="99999">10 000 € et +</button>
     </div>
     <div class="parc" id="parc-grid">
-      <!-- vraie annonce reprise à titre d'exemple -->
       <article class="auto rev" data-prix="1999">
-        <div class="vis"><span class="tag">Reprise de votre annonce</span>
-          <svg viewBox="0 0 120 60" fill="none" stroke="#5fe39a" stroke-width="2"><path d="M12 44h96M20 44c0-8 6-14 14-14h34l14 10h14c4 0 8 4 8 8M30 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M78 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M34 30l6-10h22l4 10"/></svg>
-        </div>
+        <div class="vis"><span class="tag">Reprise de votre annonce</span><svg viewBox="0 0 360 96"><use href="#gocar-car"/></svg></div>
         <div class="cps">
           <h3 class="disp">Citroën C3 · 1.1i</h3>
           <div class="specs"><span>Année <b>2004</b></span><span><b>146 606</b> km</span><span>Essence</span><span>60 ch</span></div>
@@ -226,22 +236,17 @@ body.qa .feux i.v{animation:none}
           <div class="bas"><div class="prix">1 999 <small>€</small></div><span class="voir">Voir →</span></div>
         </div>
       </article>
-      <!-- fiches d'exemple (mise en page) -->
       <article class="auto ex rev" data-prix="7490">
-        <div class="vis"><span class="tag">Exemple de fiche</span>
-          <svg viewBox="0 0 120 60" fill="none" stroke="#727880" stroke-width="2"><path d="M12 44h96M20 44c0-8 6-14 14-14h34l14 10h14c4 0 8 4 8 8M30 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M78 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M34 30l6-10h22l4 10"/></svg>
-        </div>
+        <div class="vis"><span class="tag">Exemple de fiche</span><svg viewBox="0 0 360 96"><use href="#gocar-car"/></svg></div>
         <div class="cps">
           <h3 class="disp">Renault Clio IV</h3>
-          <div class="specs"><span>Année <b>2016</b></span><span><b>92 000</b> km</span><span>Diesel</span><span>Boîte manuelle</span></div>
+          <div class="specs"><span>Année <b>2016</b></span><span><b>92 000</b> km</span><span>Diesel</span><span>Manuelle</span></div>
           <div class="seals"><span class="seal">✓ Garantie</span><span class="seal">✓ CT OK</span></div>
           <div class="bas"><div class="prix">7 490 <small>€</small></div><span class="voir">Voir →</span></div>
         </div>
       </article>
       <article class="auto ex rev" data-prix="11900">
-        <div class="vis"><span class="tag">Exemple de fiche</span>
-          <svg viewBox="0 0 120 60" fill="none" stroke="#727880" stroke-width="2"><path d="M12 44h96M20 44c0-8 6-14 14-14h34l14 10h14c4 0 8 4 8 8M30 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M78 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M34 30l6-10h22l4 10"/></svg>
-        </div>
+        <div class="vis"><span class="tag">Exemple de fiche</span><svg viewBox="0 0 360 96"><use href="#gocar-car"/></svg></div>
         <div class="cps">
           <h3 class="disp">Peugeot 3008</h3>
           <div class="specs"><span>Année <b>2018</b></span><span><b>78 500</b> km</span><span>Diesel</span><span>SUV</span></div>
@@ -250,9 +255,7 @@ body.qa .feux i.v{animation:none}
         </div>
       </article>
       <article class="auto ex rev" data-prix="4990">
-        <div class="vis"><span class="tag">Exemple de fiche</span>
-          <svg viewBox="0 0 120 60" fill="none" stroke="#727880" stroke-width="2"><path d="M12 44h96M20 44c0-8 6-14 14-14h34l14 10h14c4 0 8 4 8 8M30 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M78 44a6 6 0 1 0 12 0 6 6 0 1 0-12 0M34 30l6-10h22l4 10"/></svg>
-        </div>
+        <div class="vis"><span class="tag">Exemple de fiche</span><svg viewBox="0 0 360 96"><use href="#gocar-car"/></svg></div>
         <div class="cps">
           <h3 class="disp">Volkswagen Polo</h3>
           <div class="specs"><span>Année <b>2015</b></span><span><b>110 000</b> km</span><span>Essence</span><span>5 portes</span></div>
@@ -274,12 +277,12 @@ body.qa .feux i.v{animation:none}
       <p>Ce qui doit être vrai pour acheter les yeux fermés — et qui l'est chez vous.</p>
     </div>
     <div class="checks">
-      <div class="check rev"><div class="v">✓</div><div><b>Contrôlée avant vente</b><p>Chaque véhicule passe entre vos mains avant d'être proposé.</p></div></div>
+      <div class="check rev"><div class="v">✓</div><div><b>Véhicules sélectionnés</b><p>Chaque voiture est choisie avant d'être proposée — pas de tout-venant.</p></div></div>
       <div class="check rev"><div class="v">✓</div><div><b>Garantie 3 mois</b><p>Extensible 6 ou 9 mois — c'est écrit, pas promis en l'air.</p></div></div>
       <div class="check rev"><div class="v">✓</div><div><b>Contrôle technique à jour</b><p>Le CT est fait, la voiture part en règle.</p></div></div>
       <div class="check rev"><div class="v">✓</div><div><b>Révision faite</b><p>Distribution, vidange, filtres selon le véhicule.</p></div></div>
-      <div class="check rev"><div class="v">✓</div><div><b>Reprise possible</b><p>Votre ancienne voiture reprise dans la transaction.</p></div></div>
-      <div class="check rev"><div class="v">✓</div><div><b>Dépôt-vente</b><p>Vous vendez votre voiture ? On s'en occupe pour vous.</p></div></div>
+      <div class="check rev"><div class="v">✓</div><div><b>Reprise &amp; achat cash</b><p>Votre ancienne voiture reprise, ou rachetée cash.</p></div></div>
+      <div class="check rev"><div class="v">✓</div><div><b>Service rapide et fiable</b><p>On va droit au but — la voiture, les papiers, la route.</p></div></div>
     </div>
   </div>
 </section>
@@ -288,8 +291,8 @@ body.qa .feux i.v{animation:none}
 <section class="exister">
   <div class="wrap grid">
     <div class="txt rev">
-      <div class="kk lab" style="color:var(--vert-l)">Exister en ligne</div>
-      <h2 class="disp">Vous vendez déjà.<br>Il est temps qu'on vous <em>trouve.</em></h2>
+      <div class="kk lab" style="color:var(--or-c)">Exister en ligne</div>
+      <h2 class="disp">Vous vendez déjà.<br>Il est temps qu'on vous <em class="gold">trouve.</em></h2>
       <p>Aujourd'hui, vos voitures vivent sur les plateformes d'annonces : à l'abonnement, alignées
       contre tous les autres vendeurs, comparées au seul prix.</p>
       <div class="pt">Votre <b>vitrine à vous</b> : votre stock, votre nom, sans commission.</div>
@@ -312,11 +315,13 @@ body.qa .feux i.v{animation:none}
     <div class="tt rev"><div><div class="kk lab">Nous trouver</div><h2 class="disp">Rue de la Flamenne.</h2></div></div>
     <div class="grid">
       <div class="fiche rev">
-        <div class="k">L'adresse</div>
-        <div class="adr">GO CAR<br>82 rue de la Flamenne<br>59600 Maubeuge</div>
-        <a class="tel" href="#">01 23 45 67 89</a>
-        <div class="aobt">Numéro et horaires à afficher — communiqués à la mise en ligne.</div>
-        <p>Voitures d'occasion contrôlées et garanties · reprise · dépôt-vente.</p>
+        <div class="k">GO CAR · Maubeuge</div>
+        <div class="adr">82 rue de la Flamenne<br>59600 Maubeuge</div>
+        <div class="co">
+          <a class="grand" href="tel:+33695824499"><span class="i">☎</span>06 95 82 44 99</a>
+          <a href="mailto:gocar.vente59@gmail.com"><span class="i">✉</span>gocar.vente59@gmail.com</a>
+        </div>
+        <p>Achat &amp; vente de voitures d'occasion · reprise &amp; achat cash · véhicules sélectionnés.</p>
       </div>
       <div class="fiche rev">
         <div class="k">Une voiture en tête ? Une reprise ?</div>
@@ -337,10 +342,10 @@ body.qa .feux i.v{animation:none}
 </section>
 
 <footer>
-  <div class="mk">GO<b>CAR</b></div>
+  <span class="logo"><svg class="car" viewBox="0 0 360 96"><use href="#gocar-car"/></svg><span class="wm gold">GO CAR</span><span class="tg">Achat &amp; Vente de Voitures d'Occasion</span></span>
   <p>Maquette de démonstration préparée par Everywhere, cabinet d'accompagnement numérique — à partir
-  de vos informations publiques. Non indexée, formulaires inertes, aucune donnée collectée. Coordonnées,
-  visuels, stock et tarifs à valider ensemble.</p>
+  de votre carte et de vos informations publiques. Non indexée, formulaires inertes, aucune donnée
+  collectée. Stock, visuels et tarifs à valider ensemble.</p>
 </footer>
 
 <div class="bandeau"><b>Démonstration</b> — préparée pour GO CAR · rien n'est publié sans votre accord</div>
@@ -353,14 +358,12 @@ body.qa .feux i.v{animation:none}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vu');io.unobserve(e.target);}});},{threshold:.12});
     els.forEach(function(el){io.observe(el);});
   } else els.forEach(function(el){el.classList.add('vu');});
-  // filtre budget
   var btns=document.querySelectorAll('#filtre button'), cards=document.querySelectorAll('#parc-grid .auto');
   btns.forEach(function(b){b.addEventListener('click',function(){
     btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
     var mx=+b.dataset.max||99999, mn=+b.dataset.min||0;
     cards.forEach(function(c){var p=+c.dataset.prix; c.style.display=(p>=mn&&p<=mx)?'':'none';});
   });});
-  // form inert
   document.getElementById('fm').addEventListener('submit',function(ev){ev.preventDefault();
     this.querySelectorAll('input,textarea,button[type=submit]').forEach(function(x){x.style.display='none';});
     document.getElementById('fm-ok').style.display='block';});
