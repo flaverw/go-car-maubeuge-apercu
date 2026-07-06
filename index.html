@@ -160,6 +160,15 @@ footer p{font-size:12px;color:var(--gris2);margin-top:14px;max-width:72ch;margin
   padding:8px 14px;text-align:center;font-family:'IBM Plex Mono';font-size:11px;color:var(--gris)}
 .bandeau b{color:var(--or-c)}
 
+/* pastille : voir l'autre version (DA « le parc » — or/noir) */
+.switch{position:fixed;right:16px;bottom:46px;z-index:70;background:var(--carte);color:var(--blanc);
+  border:1px solid var(--or);border-radius:999px;padding:11px 18px;font-family:'Sora';font-weight:700;
+  font-size:13.5px;display:inline-flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.55);transition:.15s}
+.switch:hover{background:#221b10;transform:translateY(-1px)}
+.switch .d{color:var(--or-c);font-size:15px}
+.switch .s{color:var(--gris);font-weight:500;font-size:12px}
+@media(max-width:520px){.switch .s{display:none}}
+
 .rev{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .rev.vu{opacity:1;transform:none}
 body.qa .rev{opacity:1;transform:none}
@@ -352,6 +361,11 @@ body.qa .rev{opacity:1;transform:none}
 </footer>
 
 <div class="bandeau"><b>Démonstration</b> — préparée pour GO CAR · rien n'est publié sans votre accord</div>
+
+<!-- pastille : voir l'autre version -->
+<a class="switch" href="classique/" aria-label="Voir l'autre version du site">
+  <span class="d">◇</span> Voir l'autre version <span class="s">— sobre &amp; clair</span>
+</a>
 
 <script>
 (function(){

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>GO CAR — votre kit Everywhere</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--noir:#0e0c09;--noir2:#151109;--carte:#1b160e;--ligne:#332a1c;--or:#d9a441;--or-c:#f2ca6b;--or-d:#9a6f24;--blanc:#f4efe6;--mut:#ab9d82}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:radial-gradient(130% 90% at 50% -10%,#241d10,var(--noir) 68%);color:var(--blanc);min-height:100vh;padding:46px 20px 70px}
+.wrap{max-width:1080px;margin:0 auto}
+header{text-align:center;margin-bottom:34px}
+.wm{font-family:'Sora';font-weight:800;font-size:26px;letter-spacing:1px;color:var(--or-c);display:inline-block;margin-bottom:14px}
+.ev{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--or)}
+h1{font-family:'Sora';font-weight:800;font-size:clamp(26px,4.4vw,40px);letter-spacing:-.6px;margin:12px 0 8px}
+.sous{color:var(--mut);font-size:15.5px;max-width:600px;margin:0 auto;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:36px}
+.tile{background:linear-gradient(165deg,rgba(217,164,65,.08),rgba(255,255,255,.02));border:1px solid var(--ligne);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--blanc);display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.tile:hover{transform:translateY(-3px);border-color:var(--or)}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--carte)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.shot .tag{position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;background:rgba(14,12,9,.82);border:1px solid var(--ligne);padding:5px 11px;border-radius:999px;color:var(--or-c)}
+.shot .tag.green{color:#a7e8d3;border-color:rgba(26,156,120,.5)}
+.body{padding:18px 20px 20px}
+.body h2{font-family:'Sora';font-weight:700;font-size:19px}
+.body p{color:var(--mut);font-size:14px;margin-top:6px;line-height:1.55}
+.body p b{color:var(--blanc)}
+.body .go{margin-top:12px;font-family:'IBM Plex Mono';font-size:12px;color:var(--or-c);display:flex;align-items:center;gap:6px}
+.foot{text-align:center;margin-top:40px;color:var(--mut);font-size:12.5px;line-height:1.7}
+.foot b{color:var(--blanc);font-weight:600}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="wm">GO CAR</div>
+    <div class="ev">Everywhere · votre kit, préparé pour vous</div>
+    <h1>GO CAR, en ligne</h1>
+    <p class="sous">Achat &amp; vente de voitures d'occasion à Maubeuge. Voici votre première présence en ligne —
+    deux directions au choix, à regarder et à comparer.</p>
+  </header>
+
+  <div class="grid">
+    <a class="tile" href="../" target="_blank" rel="noopener">
+      <div class="shot"><span class="tag">Version « le parc »</span><img src="thumbs/site.jpg" alt="Aperçu du site"></div>
+      <div class="body"><h2>Votre site</h2>
+        <p>« <b>Des occasions sélectionnées.</b> » Le parc en or et noir : l'inventaire, la confiance, le contact réunis.</p>
+        <div class="go">Ouvrir le site →</div></div>
+    </a>
+    <a class="tile" href="../classique/" target="_blank" rel="noopener">
+      <div class="shot"><span class="tag">Version « classique »</span><img src="thumbs/version2.jpg" alt="Aperçu de la seconde version"></div>
+      <div class="body"><h2>Une autre version, au choix</h2>
+        <p>Un registre plus clair et sobre, esprit concessionnaire rassurant. Deux pistes, vous choisissez.</p>
+        <div class="go">Ouvrir la version →</div></div>
+    </a>
+    <a class="tile" href="../carte-nfc/" target="_blank" rel="noopener">
+      <div class="shot"><span class="tag">Carte NFC</span><img src="thumbs/nfc.jpg" alt="Aperçu de la carte NFC"></div>
+      <div class="body"><h2>Votre carte NFC</h2>
+        <p>Recto-verso, prête à imprimer. On l'approche du téléphone : le client arrive sur votre parc en un geste.</p>
+        <div class="go">Voir la carte →</div></div>
+    </a>
+    <a class="tile" href="../etude/?e=GO%20CAR" target="_blank" rel="noopener">
+      <div class="shot"><span class="tag green">En bonus · 48 h</span><img src="thumbs/etude.jpg" alt="Aperçu de l'étude d'économies"></div>
+      <div class="body"><h2>L'étude d'économies</h2>
+        <p>Vos contrats passés au crible, sous 48 h. Offerte, sans engagement — on constate, on ne juge jamais.</p>
+        <div class="go">Ouvrir l'étude →</div></div>
+    </a>
+  </div>
+
+  <div class="foot"><b>Everywhere</b> — cabinet d'accompagnement numérique.<br>
+  Démonstration privée, non référencée. Rien n'est publié sans votre accord ; nous en parlons ensemble.</div>
+</div>
+</body>
+</html>
