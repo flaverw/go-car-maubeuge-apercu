@@ -46,11 +46,12 @@ nav .tel{background:linear-gradient(180deg,var(--or-c),var(--or-d));color:#1a120
 .stripes b.thin{width:10px;opacity:.7}
 
 /* hero */
-.hero{position:relative;overflow:hidden;padding:clamp(46px,8vh,92px) 24px clamp(42px,7vh,84px);
-  background:radial-gradient(70% 70% at 78% 10%,rgba(217,164,65,.12),transparent 60%),linear-gradient(180deg,var(--noir),var(--noir2))}
-.hero .stripes{right:-4%;left:auto;width:44%}
+.hero{position:relative;overflow:hidden;padding:clamp(46px,8vh,92px) 24px clamp(42px,7vh,84px);background:var(--noir)}
+.hero .photo{position:absolute;inset:0;z-index:0;background:#0e0c09 url('photos/hero.jpg') center/cover;opacity:.5;filter:contrast(1.04)}
+.hero .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(96deg,var(--noir) 24%,rgba(14,12,9,.62) 60%,rgba(14,12,9,.22)),linear-gradient(180deg,rgba(14,12,9,.15),var(--noir))}
+.hero .stripes{right:-4%;left:auto;width:44%;z-index:2}
 .hero .stripes b:nth-child(1){right:18%}.hero .stripes b:nth-child(2){right:6%;top:-50%}.hero .stripes b.thin{right:30%}
-.hero .in{position:relative;z-index:2;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.4fr .6fr;gap:36px;align-items:center}
+.hero .in{position:relative;z-index:3;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.4fr .6fr;gap:36px;align-items:center}
 .hero .kk{color:var(--or-c);margin-bottom:16px}
 .hero h1{font-family:'Sora';font-weight:800;font-size:clamp(42px,7.4vw,92px);line-height:.94;letter-spacing:-.02em}
 .hero .sous{margin-top:20px;font-size:clamp(16px,2vw,19px);color:#d7cdb9;max-width:46ch}
@@ -89,6 +90,7 @@ section{padding:clamp(52px,9vh,104px) 24px}
 .auto:hover{border-color:var(--or);transform:translateY(-3px)}
 .auto .vis{aspect-ratio:16/10;background:linear-gradient(180deg,#231c11,#18130c);position:relative;display:grid;place-items:center;border-bottom:1px solid var(--ligne)}
 .auto .vis svg{width:60%;stroke:var(--or);fill:none;stroke-width:2.4;opacity:.65}
+.auto .vis img{width:100%;height:100%;object-fit:cover;display:block}
 .auto.ex .vis{background:repeating-linear-gradient(135deg,#1b160e 0 10px,#181209 10px 20px)}
 .auto.ex .vis svg{stroke:var(--gris2);opacity:.5}
 .auto .vis .tag{position:absolute;top:10px;left:10px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:rgba(26,18,6,.72);color:var(--or-c);border:1px solid rgba(217,164,65,.4);padding:4px 8px;border-radius:6px}
@@ -169,12 +171,12 @@ body.qa .rev{opacity:1;transform:none}
 <!-- symbole voiture (logo) réutilisé -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="gocar-car" viewBox="0 0 360 96">
-  <path d="M20 74 Q26 74 30 66 Q40 50 78 47 L150 44 Q182 42 214 52 L250 63 L318 66 Q340 67 340 78"/>
-  <path d="M78 47 L96 63 M150 44 L150 62 M214 52 L206 64"/>
-  <path d="M40 78 L120 78 M170 78 L300 78"/>
-  <circle cx="145" cy="78" r="17"/><circle cx="145" cy="78" r="6"/>
-  <circle cx="315" cy="78" r="17"/><circle cx="315" cy="78" r="6"/>
-  <path d="M18 70 L34 68"/>
+  <path d="M14 74 C14 63 22 57 38 55 L100 52 C116 38 152 31 194 33 C234 35 260 44 286 57 L330 61 C346 63 350 68 350 76"/>
+  <path d="M114 50 L132 39 M228 34 L221 53 M116 49 L228 48"/>
+  <path d="M42 76 L118 76 M180 76 L312 76"/>
+  <circle cx="143" cy="76" r="18"/><circle cx="143" cy="76" r="6"/>
+  <circle cx="300" cy="76" r="18"/><circle cx="300" cy="76" r="6"/>
+  <path d="M9 71 L32 68"/>
 </symbol></defs></svg>
 
 <nav>
@@ -190,6 +192,8 @@ body.qa .rev{opacity:1;transform:none}
 
 <!-- HERO -->
 <header class="hero" id="haut">
+  <div class="photo" aria-hidden="true"></div>
+  <div class="veil" aria-hidden="true"></div>
   <div class="stripes" aria-hidden="true"><b></b><b></b><b class="thin"></b></div>
   <div class="in">
     <div>
@@ -236,31 +240,31 @@ body.qa .rev{opacity:1;transform:none}
           <div class="bas"><div class="prix">1 999 <small>€</small></div><span class="voir">Voir →</span></div>
         </div>
       </article>
-      <article class="auto ex rev" data-prix="7490">
-        <div class="vis"><span class="tag">Exemple de fiche</span><svg viewBox="0 0 360 96"><use href="#gocar-car"/></svg></div>
+      <article class="auto ex rev" data-prix="9900">
+        <div class="vis"><span class="tag">Exemple de fiche</span><img src="photos/car-honda.jpg" alt="Exemple de fiche véhicule"></div>
         <div class="cps">
-          <h3 class="disp">Renault Clio IV</h3>
-          <div class="specs"><span>Année <b>2016</b></span><span><b>92 000</b> km</span><span>Diesel</span><span>Manuelle</span></div>
+          <h3 class="disp">Honda Civic</h3>
+          <div class="specs"><span>Année <b>2017</b></span><span><b>96 000</b> km</span><span>Essence</span><span>Berline</span></div>
           <div class="seals"><span class="seal">✓ Garantie</span><span class="seal">✓ CT OK</span></div>
-          <div class="bas"><div class="prix">7 490 <small>€</small></div><span class="voir">Voir →</span></div>
+          <div class="bas"><div class="prix">9 900 <small>€</small></div><span class="voir">Voir →</span></div>
         </div>
       </article>
-      <article class="auto ex rev" data-prix="11900">
-        <div class="vis"><span class="tag">Exemple de fiche</span><svg viewBox="0 0 360 96"><use href="#gocar-car"/></svg></div>
+      <article class="auto ex rev" data-prix="13900">
+        <div class="vis"><span class="tag">Exemple de fiche</span><img src="photos/car-merc.jpg" alt="Exemple de fiche véhicule"></div>
         <div class="cps">
-          <h3 class="disp">Peugeot 3008</h3>
-          <div class="specs"><span>Année <b>2018</b></span><span><b>78 500</b> km</span><span>Diesel</span><span>SUV</span></div>
-          <div class="seals"><span class="seal">✓ Garantie</span><span class="seal">✓ Révisé</span></div>
-          <div class="bas"><div class="prix">11 900 <small>€</small></div><span class="voir">Voir →</span></div>
+          <h3 class="disp">Mercedes Classe E</h3>
+          <div class="specs"><span>Année <b>2015</b></span><span><b>128 000</b> km</span><span>Diesel</span><span>Berline</span></div>
+          <div class="seals"><span class="seal">✓ Garantie</span><span class="seal">✓ Révisée</span></div>
+          <div class="bas"><div class="prix">13 900 <small>€</small></div><span class="voir">Voir →</span></div>
         </div>
       </article>
-      <article class="auto ex rev" data-prix="4990">
-        <div class="vis"><span class="tag">Exemple de fiche</span><svg viewBox="0 0 360 96"><use href="#gocar-car"/></svg></div>
+      <article class="auto ex rev" data-prix="12900">
+        <div class="vis"><span class="tag">Exemple de fiche</span><img src="photos/car-bmw.jpg" alt="Exemple de fiche véhicule"></div>
         <div class="cps">
-          <h3 class="disp">Volkswagen Polo</h3>
-          <div class="specs"><span>Année <b>2015</b></span><span><b>110 000</b> km</span><span>Essence</span><span>5 portes</span></div>
+          <h3 class="disp">BMW Série 1</h3>
+          <div class="specs"><span>Année <b>2018</b></span><span><b>84 000</b> km</span><span>Essence</span><span>Compacte</span></div>
           <div class="seals"><span class="seal">✓ Garantie</span><span class="seal">✓ CT OK</span></div>
-          <div class="bas"><div class="prix">4 990 <small>€</small></div><span class="voir">Voir →</span></div>
+          <div class="bas"><div class="prix">12 900 <small>€</small></div><span class="voir">Voir →</span></div>
         </div>
       </article>
     </div>
